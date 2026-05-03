@@ -1,0 +1,3 @@
+﻿CREATE TYPE [dbo].[M1_surname]
+    FROM NVARCHAR (50) NULL;
+

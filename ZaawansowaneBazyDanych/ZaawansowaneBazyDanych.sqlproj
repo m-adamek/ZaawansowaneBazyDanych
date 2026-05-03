@@ -73,6 +73,9 @@
     <Folder Include="Security\" />
     <Folder Include="SalesLT\Sequences\" />
     <Folder Include="dbo\XMLSchemaCollections\" />
+    <Folder Include="Student_1\Views\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Database Triggers\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\BuildVersion.sql" />
@@ -117,5 +120,16 @@
     <Build Include="SalesLT\Tables\ProductAttribute.sql" />
     <Build Include="236731\Tables\CustomerHistory.sql" />
     <Build Include="dbo\XMLSchemaCollections\ProductAttributesSchema.sql" />
+    <Build Include="SalesLT\Tables\ProductVersions.sql" />
+    <Build Include="SalesLT\Tables\ProductPriceHistory.sql" />
+    <Build Include="SalesLT\Tables\Log.sql" />
+    <Build Include="dbo\Tables\DatabaseAuditLog.sql" />
+    <Build Include="236731\Tables\DeletedCustomersLog.sql" />
+    <Build Include="Student_1\Views\MyLogicView_AvgDiff.sql" />
+    <Build Include="Student_1\Views\MyLogicView.sql" />
+    <Build Include="SalesLT\Views\v_Product.sql" />
+    <Build Include="dbo\Views\236731_Order.sql" />
+    <Build Include="Database Triggers\trg_Database_TableAudit.sql" />
+    <Build Include="dbo\User Defined Types\M1_surname.sql" />
   </ItemGroup>
 </Project>

@@ -29,8 +29,60 @@
 );
 
 
+
+
 GO
 CREATE NONCLUSTERED INDEX [IX_Product_ProductNumber]
     ON [SalesLT].[Product]([ProductNumber] ASC)
     INCLUDE([ProductID], [ProductCategoryID], [Name], [StandardCost]);
 
+
+GO
+
+CREATE TRIGGER SalesLT.trg_Product_Update_Price
+ON SalesLT.Product 
+AFTER UPDATE
+AS
+BEGIN
+SET NOCOUNT ON
+
+INSERT INTO SalesLT.ProductPriceHistory(ProductID, OldPrice, NewPrice)
+SELECT 
+i.ProductID,
+d.ListPrice AS OldPrice,
+i.ListPrice AS NewPrice
+
+FROM INSERTED i
+JOIN DELETED d 
+ON i.ProductID = d.ProductID
+
+WHERE ISNULL(d.ListPrice, -1) <> ISNULL(i.ListPrice, -1)
+END
+GO
+
+CREATE TRIGGER [SalesLT].trg_Product_PriceChange20Percent
+ON SalesLT.Product
+INSTEAD OF UPDATE
+AS
+BEGIN
+INSERT INTO SalesLT.Log(info)
+SELECT
+'Próba zwiększenia ceny o więcej niż 20% dla ProductID = ' 
++ CAST(i.ProductID AS NVARCHAR)
+
+FROM INSERTED i
+JOIN DELETED d 
+ON i.ProductID = d.ProductID
+WHERE i.ListPrice > d.ListPrice * 1.2
+
+UPDATE p
+SET 
+p.Name = i.Name,
+p.ListPrice = i.ListPrice
+FROM SalesLT.Product p
+JOIN INSERTED i 
+ON p.ProductID = i.ProductID
+JOIN DELETED d
+ON i.ProductID = d.ProductID
+WHERE i.ListPrice <= d.ListPrice * 1.2
+END
