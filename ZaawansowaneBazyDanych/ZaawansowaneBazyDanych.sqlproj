@@ -76,6 +76,8 @@
     <Folder Include="Student_1\Views\" />
     <Folder Include="dbo\Views\" />
     <Folder Include="Database Triggers\" />
+    <Folder Include="Student_1\Functions\" />
+    <Folder Include="SalesLT\Functions\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\BuildVersion.sql" />
@@ -131,5 +133,12 @@
     <Build Include="dbo\Views\236731_Order.sql" />
     <Build Include="Database Triggers\trg_Database_TableAudit.sql" />
     <Build Include="dbo\User Defined Types\M1_surname.sql" />
+    <Build Include="Student_1\Functions\ufn_ProductsJsonByCategory.sql" />
+    <Build Include="Student_1\Functions\ufn_LoyaltyPoints.sql" />
+    <Build Include="Student_1\Functions\ufn_IsPriceHigherThanCurrent.sql" />
+    <Build Include="SalesLT\Functions\BestRecord.sql" />
+    <Build Include="dbo\Functions\fn_GetCustomerCreditRisk.sql" />
+    <Build Include="Student_1\Functions\ufn_ParticipantStatus.sql" />
+    <Build Include="Student_1\Functions\ufn_PriceCheck.sql" />
   </ItemGroup>
 </Project>
