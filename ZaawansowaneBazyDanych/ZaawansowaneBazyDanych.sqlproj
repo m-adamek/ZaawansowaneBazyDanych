@@ -78,6 +78,8 @@
     <Folder Include="Database Triggers\" />
     <Folder Include="Student_1\Functions\" />
     <Folder Include="SalesLT\Functions\" />
+    <Folder Include="SalesLT\Stored Procedures\" />
+    <Folder Include="236731\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\BuildVersion.sql" />
@@ -140,5 +142,11 @@
     <Build Include="dbo\Functions\fn_GetCustomerCreditRisk.sql" />
     <Build Include="Student_1\Functions\ufn_ParticipantStatus.sql" />
     <Build Include="Student_1\Functions\ufn_PriceCheck.sql" />
+    <Build Include="SalesLT\Tables\ProductInventory.sql" />
+    <Build Include="SalesLT\Functions\IsLastNameUnique.sql" />
+    <Build Include="SalesLT\Stored Procedures\AddNewProduct.sql" />
+    <Build Include="236731\Stored Procedures\SearchCustomer.sql" />
+    <Build Include="236731\Stored Procedures\ProcessTopProducts.sql" />
+    <Build Include="236731\Stored Procedures\AddCustomer.sql" />
   </ItemGroup>
 </Project>
